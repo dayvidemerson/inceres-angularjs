@@ -1,0 +1,28 @@
+<section class="row">
+  <div class="col-12">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Data/Hora</th>
+            <th>Coordenada</th>
+            <th>Quantidade</th>
+            <th>Observações</th>
+            <th>Etiqueta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="pestPointing in vm.pestPointings">
+            <td>{{ pestPointing.id }}</td>
+            <td>{{ vm.dateService.formatDateTime(pestPointing.datetime) }}</td>
+            <td>{{ pestPointing.latitude }} | {{ pestPointing.longitude }}</td>
+            <td>{{ pestPointing.quantity }}</td>
+            <td>{{ pestPointing.note }}</td>
+            <td><div class="inc-tag {{ vm.getTagColor(pestPointing.quantity) }}"></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

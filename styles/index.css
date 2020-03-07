@@ -1,0 +1,53 @@
+.inc-body .inc-menu-left {
+  min-height: 100vh;
+  border-right: 1px solid #313131;
+  padding: 0.5rem;
+}
+
+.inc-body .inc-menu-left .inc-logo {
+  width: 100%;
+  padding: 0.5rem;
+  font-weight: bolder;
+  color: #313131;
+  border-bottom: 1px solid #313131;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.inc-body .inc-menu-left .inc-options {
+  list-style: none;
+  padding: 0;
+  display: block;
+}
+
+.inc-body .inc-menu-left .inc-options li {
+  border-bottom: 1px solid #313131;
+  box-sizing: border-box;
+}
+
+.inc-body .inc-menu-left .inc-options li a {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Tag colors */
+
+.inc-tag {
+  display: block;
+  height: 20px;
+  width: 50%;
+}
+
+.inc-tag.inc-tag-green {
+  background-color: #008E09;
+}
+
+.inc-tag.inc-tag-yellow {
+  background-color: #FFBF00;
+}
+
+.inc-tag.inc-tag-red {
+  background-color: #FF0303;
+}
