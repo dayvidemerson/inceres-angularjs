@@ -1,5 +1,12 @@
 <section class="row">
   <div class="col-12">
+    <header class="py-4">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#incForm">
+        <i class="fa fa-plus fa-fn"></i> Apontamento
+      </button>
+    </header>
+  </div>
+  <div class="col-12">
     <div class="table-responsive">
       <table class="table">
         <thead>
@@ -16,7 +23,10 @@
           <tr ng-repeat="pestPointing in vm.pestPointings">
             <td>{{ pestPointing.id }}</td>
             <td>{{ vm.dateService.formatDateTime(pestPointing.datetime) }}</td>
-            <td>{{ pestPointing.latitude }} | {{ pestPointing.longitude }}</td>
+            <td>
+              <i class="fa fa-map-marker fa-fw"></i>
+              {{ pestPointing.latitude }}, {{ pestPointing.longitude }}
+            </td>
             <td>{{ pestPointing.quantity }}</td>
             <td>{{ pestPointing.note }}</td>
             <td><div class="inc-tag {{ vm.getTagColor(pestPointing.quantity) }}"></div></td>
@@ -26,3 +36,51 @@
     </div>
   </div>
 </section>
+
+<div class="modal fade" id="incForm">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="incFormLabel">Apontar Pragas</h5>
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form name="vm.form" ng-class="{'was-validated': vm.form.$submitted}" ng-submit="vm.form.$valid && vm.save()" novalidate>
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="id_latitude">Latitude</label>
+              <input ng-model="vm.pestPointing.latitude" type="text" class="form-control" id="id_latitude" name="latitude" placeholder="Latitude" required />
+              <div ng-show="vm.form.latitude.$error.required" class="invalid-feedback">
+                Campo obrigatório
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="id_longitude">Longitude</label>
+              <input ng-model="vm.pestPointing.longitude" type="text" class="form-control" id="id_longitude" name="longitude" placeholder="Longitude" required />
+              <div ng-show="vm.form.longitude.$error.required" class="invalid-feedback">
+                Campo obrigatório
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="id_quantity">Quantidade</label>
+            <input ng-model="vm.pestPointing.quantity" type="number" class="form-control" id="id_quantity" name="quantity" placeholder="Quantidade" required />
+            <div ng-show="vm.form.quantity.$error.required" class="invalid-feedback">
+              Campo obrigatório
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="id_note">Observações</label>
+            <textarea ng-model="vm.pestPointing.note" id="id_note" rows="3" class="form-control" id="id_note" placeholder="Observações"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Fechar</button>
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

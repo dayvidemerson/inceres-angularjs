@@ -13,17 +13,37 @@ function PestPointingController(DateService, PestPointing) {
 
   vm.pestPointings = [];
 
+  vm.pestPointing = {};
+
   vm.$onInit = function() {
     vm.load();
   }
 
-  vm.load = function() {
+  vm.load = load;
+  vm.save = save;
+  vm.getTagColor = getTagColor;
+
+  function load() {
     PestPointing.query(function(response) {
       vm.pestPointings = response;
     });
   }
 
-  vm.getTagColor = function(quantity) {
+  function save() {
+    vm.pestPointing.datetime = new Date();
+    PestPointing.save(vm.pestPointing, function() {
+      resetForm();
+      load();
+      $('#incForm').modal('hide');
+    });
+  }
+
+  function resetForm() {
+    vm.pestPointing = {};
+    vm.form.$setPristine();
+  }
+
+  function getTagColor(quantity) {
     if (quantity >= 4) {
       return 'inc-tag-green';
     } else if (quantity >= 2) {
