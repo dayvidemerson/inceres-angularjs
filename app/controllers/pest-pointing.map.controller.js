@@ -28,11 +28,11 @@ function PestPointingMapController($scope, DateService, PestPointing) {
 
   function getTagColor(quantity) {
     if (quantity >= 4) {
-      return 'inc-tag-green';
+      return 'images/icons/map-green.png';
     } else if (quantity >= 2) {
-      return 'inc-tag-yellow';
+      return 'images/icons/map-yellow.png';
     } else {
-      return 'inc-tag-red';
+      return 'images/icons/map-red.png';
     }
   }
 
@@ -43,7 +43,11 @@ function PestPointingMapController($scope, DateService, PestPointing) {
       markers['marker' + pestPointing.id] = {
         lat: parseInt(pestPointing.latitude),
         lng: parseInt(pestPointing.longitude),
-        message: pestPointing.quantity + ' praga(s)'
+        icon: {
+          iconUrl: getTagColor(pestPointing.quantity),
+          iconSize: [28, 40]
+        },
+        message: "<strong>Praga(s):</strong> " + pestPointing.quantity + "<br /><strong>Observações:</strong><br />" + pestPointing.note
       };
     });
 
