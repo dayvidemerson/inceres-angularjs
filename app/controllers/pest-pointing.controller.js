@@ -20,6 +20,7 @@ function PestPointingController(DateService, PestPointing) {
   }
 
   vm.save = save;
+  vm.resetForm = resetForm;
   vm.getTagColor = getTagColor;
 
   function load() {
