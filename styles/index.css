@@ -1,10 +1,9 @@
-.inc-body .inc-menu-left {
-  min-height: 100vh;
-  border-right: 1px solid #313131;
-  padding: 0.5rem;
+a,
+a:hover {
+  text-decoration: none;
 }
 
-.inc-body .inc-menu-left .inc-logo {
+.inc-body .inc-block-left .inc-logo {
   width: 100%;
   padding: 0.5rem;
   font-weight: bolder;
@@ -14,22 +13,46 @@
   font-size: 1.5rem;
 }
 
-.inc-body .inc-menu-left .inc-options {
+.inc-body .inc-block-left .inc-options {
   list-style: none;
   padding: 0;
   display: block;
 }
 
-.inc-body .inc-menu-left .inc-options li {
+.inc-body .inc-block-left .inc-options li {
   border-bottom: 1px solid #313131;
   box-sizing: border-box;
 }
 
-.inc-body .inc-menu-left .inc-options li a {
+.inc-body .inc-block-left .inc-options li a {
   display: block;
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.5rem 2rem;
   font-size: 1rem;
+}
+
+.inc-body .inc-block-right .inc-header {
+  text-align: center;
+  border-bottom: 1px solid #313131;
+}
+
+@media (min-width: 576px) {
+  .inc-body .inc-block-left {
+    min-height: 100vh;
+    border-right: 1px solid #313131;
+    padding: 0rem;
+  }
+
+  .inc-body .inc-block-right .inc-header {
+    text-align: left;
+  }
+}
+
+.inc-active,
+.inc-active:active,
+.inc-active:hover {
+  font-weight: bold;
+  text-decoration: none;
 }
 
 /* Map */

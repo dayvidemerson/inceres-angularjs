@@ -29,7 +29,25 @@ function FieldNotebookConfig($stateProvider, $urlRouterProvider) {
     templateUrl: '/app/views/pest-pointing/map.html'
   };
 
+  const anthillPointingState = {
+    name: 'anthillPointing',
+    url: '/apontamento-de-formigueiros',
+    controller: 'AnthillPointingController',
+    controllerAs: 'vm',
+    templateUrl: '/app/views/anthill-pointing/list.html'
+  };
+
+  const anthillPointingMapState = {
+    name: 'anthillPointingMap',
+    url: '/apontamento-de-formigueiros/mapa',
+    controller: 'AnthillPointingMapController',
+    controllerAs: 'vm',
+    templateUrl: '/app/views/anthill-pointing/map.html'
+  };
+
   $stateProvider.state(pestPointingState);
   $stateProvider.state(pestPointingMapState);
+  $stateProvider.state(anthillPointingState);
+  $stateProvider.state(anthillPointingMapState);
   $urlRouterProvider.when('', '/apontamento-de-pragas');
 }

@@ -13,8 +13,13 @@
 </head>
 <body>
   <div ng-app="fieldNotebook" class="inc-body row">
-    <ng-include src="'app/views/partials/_menu-left.html'" class="col-12 col-sm-4"></ng-include>
-    <ui-view class="col-12 col-sm-8"></ui-view>
+    <aside class="col-12 col-sm-4 inc-block-left">
+      <ng-include src="'app/views/partials/_menu-left.html'">
+      </ng-include>
+    </aside>
+    <main class="col-12 col-sm-8 inc-block-right">
+      <ui-view></ui-view>
+    </main>
   </div>
   
   <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
@@ -31,7 +36,10 @@
   <script src="app/app.config.js"></script>
   <script src="app/services/date.service.js"></script>
   <script src="app/controllers/pest-pointing.controller.js"></script>
+  <script src="app/controllers/anthill-pointing.controller.js"></script>
   <script src="app/controllers/pest-pointing.map.controller.js"></script>
+  <script src="app/controllers/anthill-pointing.map.controller.js"></script>
   <script src="app/resources/pest-pointing.resource.js"></script>
+  <script src="app/resources/anthill-pointing.resource.js"></script>
 </body>
 </html>
