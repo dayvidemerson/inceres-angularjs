@@ -21,6 +21,15 @@ function FieldNotebookConfig($stateProvider, $urlRouterProvider) {
     templateUrl: '/app/views/pest-pointing/list.html'
   };
 
+  const pestPointingMapState = {
+    name: 'pestPointingMap',
+    url: '/apontamento-de-pragas/mapa',
+    controller: 'PestPointingMapController',
+    controllerAs: 'vm',
+    templateUrl: '/app/views/pest-pointing/map.html'
+  };
+
   $stateProvider.state(pestPointingState);
+  $stateProvider.state(pestPointingMapState);
   $urlRouterProvider.when('', '/apontamento-de-pragas');
 }

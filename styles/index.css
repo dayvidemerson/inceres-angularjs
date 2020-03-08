@@ -32,6 +32,12 @@
   font-size: 1rem;
 }
 
+/* Map */
+
+.inc-map {
+  height: 100vh;
+}
+
 /* Tag colors */
 
 .inc-tag {

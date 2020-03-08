@@ -16,10 +16,9 @@ function PestPointingController(DateService, PestPointing) {
   vm.pestPointing = {};
 
   vm.$onInit = function() {
-    vm.load();
+    load();
   }
 
-  vm.load = load;
   vm.save = save;
   vm.getTagColor = getTagColor;
 

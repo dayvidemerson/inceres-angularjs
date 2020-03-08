@@ -3,6 +3,8 @@
 const modules = [
   'ngResource',
   'ui.router',
+  'nemLogging',
+  'ui-leaflet',
   'fieldNotebook.controllers',
   'fieldNotebook.resources',
   'fieldNotebook.services'

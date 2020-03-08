@@ -6,8 +6,9 @@
 
   <title>Field Notebook</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css">
   <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
@@ -15,17 +16,22 @@
     <ng-include src="'app/views/partials/_menu-left.html'" class="col-12 col-sm-4"></ng-include>
     <ui-view class="col-12 col-sm-8"></ui-view>
   </div>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.25/angular-ui-router.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.7.9/angular-resource.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  
+  <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+  <script src="node_modules/popper.js/dist/popper.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  
+  <script src="node_modules/angular/angular.min.js"></script>
+  <script src="node_modules/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+  <script src="node_modules/angular-resource/angular-resource.min.js"></script>
+  <script src="node_modules/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
+  <script src="node_modules/leaflet/dist/leaflet.js"></script>
+  <script src="node_modules/ui-leaflet/dist/ui-leaflet.js"></script>
   <script src="app/app.module.js"></script>
   <script src="app/app.config.js"></script>
   <script src="app/services/date.service.js"></script>
   <script src="app/controllers/pest-pointing.controller.js"></script>
+  <script src="app/controllers/pest-pointing.map.controller.js"></script>
   <script src="app/resources/pest-pointing.resource.js"></script>
 </body>
 </html>
