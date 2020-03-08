@@ -14,6 +14,7 @@
     "angular-resource": "^1.7.9",
     "angular-simple-logger": "^0.1.7",
     "bootstrap": "^4.4.1",
+    "express": "^4.17.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.1",
