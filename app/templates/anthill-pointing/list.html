@@ -4,7 +4,7 @@
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#incForm">
         <i class="fa fa-plus fa-fn"></i> Apontamento
       </button>
-      <button ui-sref="pestPointingMap" type="button" class="btn btn-primary">
+      <button ui-sref="anthillPointingMap" type="button" class="btn btn-primary">
         <i class="fa fa-map fa-fn"></i> Ver Mapa
       </button>
     </header>
@@ -23,16 +23,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="pestPointing in vm.pestPointings">
-            <td>{{ pestPointing.id }}</td>
-            <td>{{ vm.dateService.formatDateTime(pestPointing.datetime) }}</td>
+          <tr ng-repeat="anthillPointing in vm.anthillPointings">
+            <td>{{ anthillPointing.id }}</td>
+            <td>{{ anthillPointing.datetime | date: 'dd/MM/yyyy HH:mm' }}</td>
             <td>
               <i class="fa fa-map-marker fa-fw"></i>
-              {{ pestPointing.latitude }}, {{ pestPointing.longitude }}
+              {{ anthillPointing.latitude }}, {{ anthillPointing.longitude }}
             </td>
-            <td>{{ pestPointing.quantity }}</td>
-            <td>{{ pestPointing.note }}</td>
-            <td><div class="inc-tag {{ vm.getTagColor(pestPointing.quantity) }}"></div></td>
+            <td>{{ anthillPointing.quantity }}</td>
+            <td>{{ anthillPointing.note }}</td>
+            <td><tag quantity="anthillPointing.quantity"></tag></td>
           </tr>
         </tbody>
       </table>
@@ -44,7 +44,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="incFormLabel">Apontar Pragas</h5>
+        <h5 class="modal-title" id="incFormLabel">Apontar Formigueiros</h5>
         <button type="button" class="close" data-dismiss="modal">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -54,14 +54,14 @@
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="id_latitude">Latitude</label>
-              <input ng-model="vm.pestPointing.latitude" type="text" class="form-control" id="id_latitude" name="latitude" placeholder="Latitude" required />
+              <input ng-model="vm.anthillPointing.latitude" type="text" class="form-control" id="id_latitude" name="latitude" placeholder="Latitude" required />
               <div ng-show="vm.form.latitude.$error.required" class="invalid-feedback">
                 Campo obrigatório
               </div>
             </div>
             <div class="form-group col-md-6">
               <label for="id_longitude">Longitude</label>
-              <input ng-model="vm.pestPointing.longitude" type="text" class="form-control" id="id_longitude" name="longitude" placeholder="Longitude" required />
+              <input ng-model="vm.anthillPointing.longitude" type="text" class="form-control" id="id_longitude" name="longitude" placeholder="Longitude" required />
               <div ng-show="vm.form.longitude.$error.required" class="invalid-feedback">
                 Campo obrigatório
               </div>
@@ -69,14 +69,14 @@
           </div>
           <div class="form-group">
             <label for="id_quantity">Quantidade</label>
-            <input ng-model="vm.pestPointing.quantity" type="number" class="form-control" id="id_quantity" name="quantity" placeholder="Quantidade" required />
+            <input ng-model="vm.anthillPointing.quantity" type="number" class="form-control" id="id_quantity" name="quantity" placeholder="Quantidade" required />
             <div ng-show="vm.form.quantity.$error.required" class="invalid-feedback">
               Campo obrigatório
             </div>
           </div>
           <div class="form-group">
             <label for="id_note">Observações</label>
-            <textarea ng-model="vm.pestPointing.note" id="id_note" rows="3" class="form-control" id="id_note" placeholder="Observações"></textarea>
+            <textarea ng-model="vm.anthillPointing.note" id="id_note" rows="3" class="form-control" id="id_note" placeholder="Observações"></textarea>
           </div>
         </div>
         <div class="modal-footer">

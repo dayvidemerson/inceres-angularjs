@@ -1,18 +1,9 @@
 'use strict';
 
-angular
-  .module('fieldNotebook.controllers')
-  .controller('AnthillPointingController', AnthillPointingController);
-
-AnthillPointingController.$inject = ['DateService', 'AnthillPointing'];
-
-function AnthillPointingController(DateService, AnthillPointing) {
-  var vm = this;
-
-  vm.dateService = DateService;
+appController.controller('AnthillPointingController', ['AnthillPointing', function(AnthillPointing) {
+  let vm = this;
 
   vm.anthillPointings = [];
-
   vm.anthillPointing = {};
 
   vm.$onInit = function() {
@@ -52,4 +43,4 @@ function AnthillPointingController(DateService, AnthillPointing) {
       return 'inc-tag-red';
     }
   }
-}
+}]);

@@ -14,7 +14,7 @@
 <body>
   <div ng-app="fieldNotebook" class="inc-body row">
     <aside class="col-12 col-sm-4 inc-block-left">
-      <ng-include src="'app/views/partials/_menu-left.html'">
+      <ng-include src="'app/templates/partials/_menu-left.html'">
       </ng-include>
     </aside>
     <main class="col-12 col-sm-8 inc-block-right">
@@ -32,9 +32,9 @@
   <script src="node_modules/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
   <script src="node_modules/leaflet/dist/leaflet.js"></script>
   <script src="node_modules/ui-leaflet/dist/ui-leaflet.js"></script>
-  <script src="app/app.module.js"></script>
-  <script src="app/app.config.js"></script>
-  <script src="app/services/date.service.js"></script>
+  <script src="app/app.js"></script>
+  <script src="app/services/map.service.js"></script>
+  <script src="app/directives/tag/tag.directive.js"></script>
   <script src="app/controllers/pest-pointing.controller.js"></script>
   <script src="app/controllers/anthill-pointing.controller.js"></script>
   <script src="app/controllers/pest-pointing.map.controller.js"></script>

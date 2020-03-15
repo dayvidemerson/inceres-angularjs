@@ -1,15 +1,7 @@
 'use strict';
 
-angular
-  .module('fieldNotebook.controllers')
-  .controller('PestPointingController', PestPointingController);
-
-PestPointingController.$inject = ['DateService', 'PestPointing'];
-
-function PestPointingController(DateService, PestPointing) {
-  var vm = this;
-
-  vm.dateService = DateService;
+appController.controller('PestPointingController', ['PestPointing', function(PestPointing) {
+  let vm = this;
 
   vm.pestPointings = [];
 
@@ -52,4 +44,4 @@ function PestPointingController(DateService, PestPointing) {
       return 'inc-tag-red';
     }
   }
-}
+}]);

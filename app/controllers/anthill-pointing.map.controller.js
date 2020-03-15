@@ -1,19 +1,10 @@
 'use strict';
 
-angular
-  .module('fieldNotebook.controllers')
-  .controller('AnthillPointingMapController', AnthillPointingMapController);
-
-AnthillPointingMapController.$inject = ['$scope', 'DateService', 'AnthillPointing'];
-
-function AnthillPointingMapController($scope, DateService, AnthillPointing) {
-  var vm = this;
-
-  vm.dateService = DateService;
+appController.controller('AnthillPointingMapController', ['$scope', 'AnthillPointing', 'MapService', function($scope, AnthillPointing, MapService) {
+  let vm = this;
+  let mapService = MapService;
 
   vm.anthillPointings = [];
-
-  vm.anthillPointing = {};
 
   vm.$onInit = function() {
     load();
@@ -26,16 +17,6 @@ function AnthillPointingMapController($scope, DateService, AnthillPointing) {
     });
   }
 
-  function getTagColor(quantity) {
-    if (quantity >= 4) {
-      return 'images/icons/map-green.png';
-    } else if (quantity >= 2) {
-      return 'images/icons/map-yellow.png';
-    } else {
-      return 'images/icons/map-red.png';
-    }
-  }
-
   function drawMarkers() {
     let markers = {};
 
@@ -44,7 +25,7 @@ function AnthillPointingMapController($scope, DateService, AnthillPointing) {
         lat: parseInt(anthillPointing.latitude),
         lng: parseInt(anthillPointing.longitude),
         icon: {
-          iconUrl: getTagColor(anthillPointing.quantity),
+          iconUrl: mapService.getIcon(anthillPointing.quantity),
           iconSize: [28, 40]
         },
         message: "<strong>Praga(s):</strong> " + anthillPointing.quantity + "<br /><strong>Observações:</strong><br />" + anthillPointing.note
@@ -55,4 +36,4 @@ function AnthillPointingMapController($scope, DateService, AnthillPointing) {
       markers: markers
     });
   }
-}
+}]);

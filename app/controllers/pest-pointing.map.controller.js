@@ -1,19 +1,10 @@
 'use strict';
 
-angular
-  .module('fieldNotebook.controllers')
-  .controller('PestPointingMapController', PestPointingMapController);
-
-PestPointingMapController.$inject = ['$scope', 'DateService', 'PestPointing'];
-
-function PestPointingMapController($scope, DateService, PestPointing) {
-  var vm = this;
-
-  vm.dateService = DateService;
+appController.controller('PestPointingMapController', ['$scope', 'PestPointing', 'MapService', function ($scope, PestPointing, MapService) {
+  let vm = this;
+  let mapService = MapService;
 
   vm.pestPointings = [];
-
-  vm.pestPointing = {};
 
   vm.$onInit = function() {
     load();
@@ -26,16 +17,6 @@ function PestPointingMapController($scope, DateService, PestPointing) {
     });
   }
 
-  function getTagColor(quantity) {
-    if (quantity >= 4) {
-      return 'images/icons/map-green.png';
-    } else if (quantity >= 2) {
-      return 'images/icons/map-yellow.png';
-    } else {
-      return 'images/icons/map-red.png';
-    }
-  }
-
   function drawMarkers() {
     let markers = {};
 
@@ -44,7 +25,7 @@ function PestPointingMapController($scope, DateService, PestPointing) {
         lat: parseInt(pestPointing.latitude),
         lng: parseInt(pestPointing.longitude),
         icon: {
-          iconUrl: getTagColor(pestPointing.quantity),
+          iconUrl: mapService.getIcon(pestPointing.quantity),
           iconSize: [28, 40]
         },
         message: "<strong>Praga(s):</strong> " + pestPointing.quantity + "<br /><strong>Observações:</strong><br />" + pestPointing.note
@@ -55,4 +36,4 @@ function PestPointingMapController($scope, DateService, PestPointing) {
       markers: markers
     });
   }
-}
+}]);
