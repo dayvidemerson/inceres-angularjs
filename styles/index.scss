@@ -1,0 +1,88 @@
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.inc-body {
+  .inc-block-left {
+    .inc-logo {
+      width: 100%;
+      padding: 0.5rem;
+      font-weight: bolder;
+      color: #313131;
+      border-bottom: 1px solid #313131;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+    .inc-options {
+      list-style: none;
+      padding: 0;
+      display: block;
+      li {
+        border-bottom: 1px solid #313131;
+        box-sizing: border-box;
+        a {
+          display: block;
+          width: 100%;
+          padding: 0.5rem 2rem;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+  .inc-block-right {
+    .inc-header {
+      text-align: center;
+      border-bottom: 1px solid #313131;
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .inc-body {
+    .inc-block-left {
+      min-height: 100vh;
+      border-right: 1px solid #313131;
+      padding: 0rem;
+    }
+    .inc-block-right {
+      .inc-header {
+        text-align: left;
+      }
+    }
+  }
+}
+
+.inc-active {
+  font-weight: bold;
+  text-decoration: none;
+  &:active,
+  &:hover {
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
+
+/* Map */
+
+.inc-map {
+  height: 100vh;
+}
+
+/* Tag colors */
+
+.inc-tag {
+  display: block;
+  height: 20px;
+  width: 50%;
+  &.inc-tag-green {
+    background-color: #008E09;
+  }
+  &.inc-tag-yellow {
+    background-color: #FFBF00;
+  }
+  &.inc-tag-red {
+    background-color: #FF0303;
+  }
+}

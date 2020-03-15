@@ -1,0 +1,42 @@
+<div class="modal-header">
+  <h5 class="modal-title">Apontar Formigueiros</h5>
+  <button type="button" class="close" ng-click="vm.close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<form name="vm.form" ng-class="{'was-validated': vm.form.$submitted}" ng-submit="vm.save()" novalidate>
+  <div class="modal-body">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="id_latitude">Latitude</label>
+        <input ng-model="vm.pestPointing.latitude" type="text" class="form-control" id="id_latitude" name="latitude" placeholder="Latitude" required />
+        <div ng-show="vm.form.latitude.$error.required" class="invalid-feedback">
+          Campo obrigatório
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="id_longitude">Longitude</label>
+        <input ng-model="vm.pestPointing.longitude" type="text" class="form-control" id="id_longitude" name="longitude" placeholder="Longitude" required />
+        <div ng-show="vm.form.longitude.$error.required" class="invalid-feedback">
+          Campo obrigatório
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="id_quantity">Quantidade</label>
+      <input ng-model="vm.pestPointing.quantity" type="number" class="form-control" id="id_quantity" name="quantity" placeholder="Quantidade" required />
+      <div ng-show="vm.form.quantity.$error.required" class="invalid-feedback">
+        Campo obrigatório
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="id_note">Observações</label>
+      <textarea ng-model="vm.pestPointing.note" id="id_note" rows="3" class="form-control" id="id_note" placeholder="Observações"></textarea>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" ng-click="vm.close()">Cancelar</button>
+    <button type="submit" class="btn btn-primary">Apontar</button>
+  </div>
+</form>

@@ -1,18 +1,13 @@
 'use strict';
 
-appController.controller('AnthillPointingController', ['AnthillPointing', function(AnthillPointing) {
+appController.controller('AnthillPointingController', ['$uibModal', 'AnthillPointing', function($uibModal, AnthillPointing) {
   let vm = this;
 
   vm.anthillPointings = [];
-  vm.anthillPointing = {};
 
   vm.$onInit = function() {
     load();
   }
-
-  vm.save = save;
-  vm.resetForm = resetForm;
-  vm.getTagColor = getTagColor;
 
   function load() {
     AnthillPointing.query(function(response) {
@@ -20,27 +15,15 @@ appController.controller('AnthillPointingController', ['AnthillPointing', functi
     });
   }
 
-  function save() {
-    vm.anthillPointing.datetime = new Date();
-    AnthillPointing.save(vm.anthillPointing, function() {
-      resetForm();
+  vm.openForm = function() {
+    $uibModal.open({
+      animation: true,
+      templateUrl: '/app/templates/anthill-pointing/form.html',
+      controller: 'AnthillPointingFormController',
+      controllerAs: 'vm',
+      size: 'md'
+    }).result.then(function() {
       load();
-      $('#incForm').modal('hide');
     });
-  }
-
-  function resetForm() {
-    vm.anthillPointing = {};
-    vm.form.$setPristine();
-  }
-
-  function getTagColor(quantity) {
-    if (quantity >= 4) {
-      return 'inc-tag-green';
-    } else if (quantity >= 2) {
-      return 'inc-tag-yellow';
-    } else {
-      return 'inc-tag-red';
-    }
   }
 }]);

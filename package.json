@@ -3,21 +3,32 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "v10.15.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
     "@uirouter/angularjs": "^1.0.25",
     "angular": "^1.7.9",
+    "angular-animate": "^1.7.9",
     "angular-resource": "^1.7.9",
     "angular-simple-logger": "^0.1.7",
+    "angular-touch": "^1.7.9",
     "bootstrap": "^4.4.1",
-    "express": "^4.17.1",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.4.1",
-    "popper.js": "^1.16.1",
-    "ui-leaflet": "^1.0.3"
+    "ui-bootstrap4": "^3.0.6",
+    "ui-leaflet": "^1.0.3",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-terser": "^1.2.0"
   }
 }

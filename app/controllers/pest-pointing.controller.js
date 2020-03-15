@@ -1,19 +1,13 @@
 'use strict';
 
-appController.controller('PestPointingController', ['PestPointing', function(PestPointing) {
+appController.controller('PestPointingController', ['$uibModal', 'PestPointing', function($uibModal, PestPointing) {
   let vm = this;
 
   vm.pestPointings = [];
 
-  vm.pestPointing = {};
-
   vm.$onInit = function() {
     load();
   }
-
-  vm.save = save;
-  vm.resetForm = resetForm;
-  vm.getTagColor = getTagColor;
 
   function load() {
     PestPointing.query(function(response) {
@@ -21,27 +15,15 @@ appController.controller('PestPointingController', ['PestPointing', function(Pes
     });
   }
 
-  function save() {
-    vm.pestPointing.datetime = new Date();
-    PestPointing.save(vm.pestPointing, function() {
-      resetForm();
+  vm.openForm = function() {
+    $uibModal.open({
+      animation: true,
+      templateUrl: '/app/templates/pest-pointing/form.html',
+      controller: 'PestPointingFormController',
+      controllerAs: 'vm',
+      size: 'md'
+    }).result.then(function() {
       load();
-      $('#incForm').modal('hide');
     });
-  }
-
-  function resetForm() {
-    vm.pestPointing = {};
-    vm.form.$setPristine();
-  }
-
-  function getTagColor(quantity) {
-    if (quantity >= 4) {
-      return 'inc-tag-green';
-    } else if (quantity >= 2) {
-      return 'inc-tag-yellow';
-    } else {
-      return 'inc-tag-red';
-    }
   }
 }]);

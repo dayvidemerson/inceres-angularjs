@@ -3,8 +3,7 @@
 appController.controller('AnthillPointingMapController', ['$scope', 'AnthillPointing', 'MapService', function($scope, AnthillPointing, MapService) {
   let vm = this;
   let mapService = MapService;
-
-  vm.anthillPointings = [];
+  let anthillPointings = [];
 
   vm.$onInit = function() {
     load();
@@ -12,7 +11,7 @@ appController.controller('AnthillPointingMapController', ['$scope', 'AnthillPoin
 
   function load() {
     AnthillPointing.query(function(response) {
-      vm.anthillPointings = response;
+      anthillPointings = response;
       drawMarkers();
     });
   }
@@ -20,7 +19,7 @@ appController.controller('AnthillPointingMapController', ['$scope', 'AnthillPoin
   function drawMarkers() {
     let markers = {};
 
-    vm.anthillPointings.forEach(anthillPointing => {
+    anthillPointings.forEach(anthillPointing => {
       markers['marker' + anthillPointing.id] = {
         lat: parseInt(anthillPointing.latitude),
         lng: parseInt(anthillPointing.longitude),
@@ -28,7 +27,7 @@ appController.controller('AnthillPointingMapController', ['$scope', 'AnthillPoin
           iconUrl: mapService.getIcon(anthillPointing.quantity),
           iconSize: [28, 40]
         },
-        message: "<strong>Praga(s):</strong> " + anthillPointing.quantity + "<br /><strong>Observações:</strong><br />" + anthillPointing.note
+        message: `<strong>Praga(s):</strong> ${anthillPointing.quantity}<br /><strong>Observações:</strong><br />${anthillPointing.note}`
       };
     });
 

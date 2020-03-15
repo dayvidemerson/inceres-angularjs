@@ -7,15 +7,18 @@ let appServices = angular.module('fieldNotebook.services', []);
 
 angular.module('fieldNotebook', [
   'ngResource',
+  'ngAnimate',
   'ui.router',
   'nemLogging',
+  'ui.bootstrap',
+  'ui.bootstrap.modal',
   'ui-leaflet',
   'fieldNotebook.controllers',
   'fieldNotebook.resources',
   'fieldNotebook.directives',
   'fieldNotebook.services'
 ]).constant('appConfig', {
-  backendUrl: 'https://5e60615bcbbe0600146cb970.mockapi.io/api/v1/'
+  backendUrl: 'https://5e60615bcbbe0600146cb970.mockapi.io/api/v1'
 }).config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state({

@@ -3,8 +3,7 @@
 appController.controller('PestPointingMapController', ['$scope', 'PestPointing', 'MapService', function ($scope, PestPointing, MapService) {
   let vm = this;
   let mapService = MapService;
-
-  vm.pestPointings = [];
+  let pestPointings = [];
 
   vm.$onInit = function() {
     load();
@@ -12,7 +11,7 @@ appController.controller('PestPointingMapController', ['$scope', 'PestPointing',
 
   function load() {
     PestPointing.query(function(response) {
-      vm.pestPointings = response;
+      pestPointings = response;
       drawMarkers();
     });
   }
@@ -20,7 +19,7 @@ appController.controller('PestPointingMapController', ['$scope', 'PestPointing',
   function drawMarkers() {
     let markers = {};
 
-    vm.pestPointings.forEach(pestPointing => {
+    pestPointings.forEach(pestPointing => {
       markers['marker' + pestPointing.id] = {
         lat: parseInt(pestPointing.latitude),
         lng: parseInt(pestPointing.longitude),
@@ -28,7 +27,7 @@ appController.controller('PestPointingMapController', ['$scope', 'PestPointing',
           iconUrl: mapService.getIcon(pestPointing.quantity),
           iconSize: [28, 40]
         },
-        message: "<strong>Praga(s):</strong> " + pestPointing.quantity + "<br /><strong>Observações:</strong><br />" + pestPointing.note
+        message: `<strong>Praga(s):</strong> ${pestPointing.quantity}<br /><strong>Observações:</strong><br />${pestPointing.note}`
       };
     });
 
