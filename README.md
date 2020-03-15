@@ -6,7 +6,11 @@ Instale as depedências do NPM:
 
 `$ npm install`
 
-Execute a aplicação com:
+Inicie o Gulp para automatizar a compilação dos arquivos modificados:
+
+`$ gulp`
+
+Em outra aba, execute a aplicação com:
 
 `$ node app.js`
 
